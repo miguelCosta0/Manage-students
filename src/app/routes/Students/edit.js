@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { isEmail } from "validator";
@@ -18,7 +18,7 @@ export default function EditStudent() {
   const [student, setStudent] = useState({});
   const [pfpUrl, setPfpUrl] = useState(null);
   const [pfp, setPfp] = useState(null);
-  const studentId = location.pathname.split('/').at(-1);
+  const { id: studentId } = useParams();
 
   useEffect(() => {
     (async () => {
