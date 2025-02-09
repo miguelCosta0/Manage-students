@@ -1,0 +1,23 @@
+nav.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+}
+nav.header div.user-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logout-btn {
+  color: #fff;
+}
+.logout-btn:hover {
+  color:rgb(255, 65, 65);
+}

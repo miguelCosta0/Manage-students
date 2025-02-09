@@ -1,0 +1,84 @@
+div.create-student-btn {
+  display: block;
+  background-color: var(--primary-color-light);
+  width: fit-content;
+  margin: 15px auto;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+div.create-student-btn:hover {
+  color: #fff;
+  font-weight: 520;
+  background-color: var(--primary-color-dark);
+  cursor: pointer;
+}
+
+.students {
+  margin: 30px auto;
+  padding: 1px 0;
+  max-width: 700px;
+  min-width: 500px;
+  background-color: #cccccc;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.student {
+  --student-row-height: 35px;
+  --student-row-padding: 5px;
+  width: 100%;
+  height: calc(var(--student-row-height) + 2*var(--student-row-padding));
+  margin: 1px auto;
+  padding: var(--student-row-padding);
+  background-color: #fff;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student div.student-pfp {
+  height: var(--student-row-height);
+  width: var(--student-row-height);
+  vertical-align: middle;
+}
+
+.student img {
+  border-radius: 50%;
+  width: var(--student-row-height);
+  height: var(--student-row-height);
+}
+
+.student .edit-btn {
+  display: inline-block;
+  color: var(--primary-color-light);
+  margin-right: 10px;
+}
+
+.student .edit-btn:hover {
+  color: var(--primary-color-dark);
+  cursor: pointer;
+}
+
+.student .delete-btn {
+  display: inline-block;
+  color: red;
+}
+
+.student .delete-btn:hover {
+  color: rgb(115, 0, 0);
+  cursor: pointer;
+}
+
+.student .confirm-delete-btn {
+  display: none;
+  color: rgb(255, 136, 0);
+}
+
+.student .confirm-delete-btn:hover {
+  color: rgb(201, 107, 0);
+  cursor: pointer;
+}

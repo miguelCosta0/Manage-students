@@ -1,0 +1,85 @@
+.form-edit-student #student-pfp { grid-area: pfp; }
+.form-edit-student label:has(#nome) { grid-area: nome; }
+.form-edit-student label:has(#sobrenome) { grid-area: sobrenome; }
+.form-edit-student label:has(#email) { grid-area: email; }
+.form-edit-student label:has(#idade) { grid-area: idade; }
+.form-edit-student label:has(#altura) { grid-area: altura; }
+.form-edit-student label:has(#peso) { grid-area: peso; }
+.form-edit-student .edit-student-btn { grid-area: btn; }
+
+.form-edit-student {
+  width: 500px; 
+  margin: 20px auto;
+  display: grid;
+  grid-template-areas:
+  "pfp nome"
+  "pfp sobrenome"
+  "pfp email"
+  "idade idade"
+  "altura altura"
+  "peso peso"
+  "btn . ";
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: repeat(1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.form-edit-student input[type=file] {
+  display: none;
+}
+.form-edit-student #student-pfp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: clip;
+}
+
+.form-edit-student #student-pfp .select-pfp-hover  {
+  padding: 50%;
+  text-align: center;
+  cursor: default;
+  position: absolute;
+  opacity: 0;
+}
+.form-edit-student #student-pfp:has(*:hover) .select-pfp-hover:hover {
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+  opacity: 90%;
+}
+.form-edit-student #student-pfp img {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.form-edit-student label {
+  display: block;
+}
+
+.form-edit-student input {
+  display: block;
+  margin: 5px 0 0 0;
+  padding: 7px 3px;
+  width: 100%;
+}
+
+.form-edit-student .edit-student-btn {
+  display: block;
+  background-color: var(--primary-color-light);
+  width: fit-content;
+  margin: 15px 5px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.form-edit-student .edit-student-btn:hover {
+  color: #fff;
+  font-weight: 520;
+  background-color: var(--primary-color-dark);
+}

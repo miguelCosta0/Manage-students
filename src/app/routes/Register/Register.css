@@ -1,0 +1,29 @@
+.form-register {
+  width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.form-register label {
+  display: block;
+  margin: 20px 0 10px 0;
+}
+.form-register input {
+  width: 100%;
+  height: 30px;
+}
+.form-register .sign-up-btn {
+  display: block;
+  background-color: var(--primary-color-light);
+  margin: 15px 5px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.form-register .sign-up-btn:hover {
+  color: #fff;
+  font-weight: 520;
+  background-color: var(--primary-color-dark);
+}

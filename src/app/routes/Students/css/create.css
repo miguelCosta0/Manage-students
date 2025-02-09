@@ -1,0 +1,33 @@
+.form-create-student {
+  width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.form-create-student label {
+  display: block;
+  margin: 20px 0 10px 0;
+}
+
+.form-create-student input {
+  display: block;
+  margin: 5px 0 0 0;
+  padding: 7px 3px;
+  width: 90%;
+}
+
+.form-create-student .create-student-btn {
+  display: block;
+  background-color: var(--primary-color-light);
+  margin: 15px 5px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.form-create-student .create-student-btn:hover {
+  color: #fff;
+  font-weight: 520;
+  background-color: var(--primary-color-dark);
+}

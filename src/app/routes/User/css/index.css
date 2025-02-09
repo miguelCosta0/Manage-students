@@ -1,0 +1,32 @@
+
+.user-information {
+  width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+}
+.user-information h2 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 20px 0 10px 0;
+}
+.user-information p {
+  width: 100%;
+  padding: 5px 1px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+}
+.user-information .edit-user-btn {
+  display: block;
+  background-color: var(--primary-color-light);
+  margin: 15px 5px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.user-information .edit-user-btn:hover {
+  color: #fff;
+  font-weight: 520;
+  background-color: var(--primary-color-dark);
+}

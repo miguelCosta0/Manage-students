@@ -1,0 +1,17 @@
+.loading-screen {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.877);
+  color: #fff;
+  font-size: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}

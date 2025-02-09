@@ -1,0 +1,10 @@
+.student div.student-pfp {
+  height: var(--student-row-height);
+  vertical-align: middle;
+}
+
+.student img {
+  border-radius: 50%;
+  width: var(--student-row-height);
+  height: var(--student-row-height);
+}

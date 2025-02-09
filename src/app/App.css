@@ -1,0 +1,15 @@
+:root {
+  --primary-color: #0a688d;
+  --primary-color-light: #47c5ff;
+  --primary-color-dark: #004563;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+}
