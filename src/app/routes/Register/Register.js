@@ -11,8 +11,6 @@ import './Register.css';
 
 export default function Register() {
   const [user, setUser] = useState();
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-
   const dispatch = useDispatch();
 
   return (
