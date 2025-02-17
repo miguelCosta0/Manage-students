@@ -8,7 +8,8 @@
 .form-edit-student .edit-student-btn { grid-area: btn; }
 
 .form-edit-student {
-  width: 500px; 
+  --img-dimension: 200px;
+  width: 500px;
   margin: 20px auto;
   display: grid;
   grid-template-areas:
@@ -19,8 +20,8 @@
   "altura altura"
   "peso peso"
   "btn . ";
-  grid-template-columns: 40% 1fr;
-  grid-template-rows: repeat(1fr);
+  grid-template-columns: var(--img-dimension) 1fr;
+  grid-template-rows: repeat(3, calc(var(--img-dimension) / 3 - 5px));
   gap: 10px;
   align-items: center;
 }
@@ -37,23 +38,32 @@
   overflow: clip;
 }
 
-.form-edit-student #student-pfp .select-pfp-hover  {
-  padding: 50%;
-  text-align: center;
-  cursor: default;
+.form-edit-student #student-pfp .select-pfp-hover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   position: absolute;
+  z-index: 1;
   opacity: 0;
 }
-.form-edit-student #student-pfp:has(*:hover) .select-pfp-hover:hover {
+.form-edit-student #student-pfp .select-pfp-hover:hover {
   background-color: #000;
   color: #fff;
   font-size: 18px;
   opacity: 90%;
 }
-.form-edit-student #student-pfp img {
+.form-edit-student #student-pfp .select-pfp-hover button {
+  padding: 1px;
+}
+.form-edit-student #student-pfp img,
+.form-edit-student #student-pfp svg {
   display: block;
-  width: 200px;
-  height: 200px;
+  width: var(--img-dimension);
+  height: var(--img-dimension);
 }
 
 .form-edit-student label {

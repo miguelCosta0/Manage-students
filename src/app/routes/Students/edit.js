@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { isEmail } from "validator";
@@ -12,12 +12,12 @@ import StudentProfilePicture from "./profilePic";
 import './css/edit.css'
 
 export default function EditStudent() {
-  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [student, setStudent] = useState({});
   const [pfpUrl, setPfpUrl] = useState(null);
-  const [pfp, setPfp] = useState(null);
+  const [pfpFile, setPfpFile] = useState(null);
+  const [pfpChanged, setPfpChanged] = useState(false);
   const { id: studentId } = useParams();
 
   useEffect(() => {
@@ -31,8 +31,9 @@ export default function EditStudent() {
           response.data.idade = response.data.idade.toString();
           return response.data;
         });
-        if (response.data.Photos.length > 0)
-          setPfpUrl(response.data.Photos[0].url);
+        if (response.data.Photo) {
+          setPfpUrl(response.data.Photo.url);
+        }
         dispatch(loadingActions.LoadingEnd());
       } catch (e) {
         dispatch(loadingActions.LoadingEnd());
@@ -49,17 +50,20 @@ export default function EditStudent() {
         }
       }
     })();
-  }, [studentId, dispatch, navigate])
+  }, [studentId, dispatch, navigate]);
 
   return (
     <>
       <h1>Editar Aluno</h1>
       <form className="form-edit-student" onSubmit={handleStudentEdit}>
-        <label id='student-pfp' >
+        <div id='student-pfp' >
           <input type="file" onChange={ChangePfp}></input>
-          <div className="select-pfp-hover">Selecionar imagem</div>
+          <div className="select-pfp-hover">
+            <button type='button' onClick={selectNewPfp}>Nova imagem</button>
+            <button type='button' onClick={removePfp}>Remover</button>
+          </div>
           <StudentProfilePicture url={pfpUrl} />
-        </label>
+        </div>
         <label>
           Nome:
           <input type="text" id='nome' defaultValue={student.nome} />
@@ -90,10 +94,24 @@ export default function EditStudent() {
     </>
   );
 
+  function selectNewPfp(e) {
+    const fileInput = document.querySelector('.form-edit-student input[type="file"]');
+    fileInput.click();
+  }
+
+  function removePfp(e) {
+    setPfpFile(null);
+    if (pfpUrl) {
+      setPfpUrl(null);
+      setPfpChanged(true);
+    }
+  }
+
   function ChangePfp(e) {
-    const pfp = e.target.files[0];
-    setPfp(pfp);
-    setPfpUrl(URL.createObjectURL(pfp));
+    const pfpFile = e.target.files[0];
+    setPfpFile(pfpFile);
+    setPfpUrl(URL.createObjectURL(pfpFile));
+    setPfpChanged(true);
   }
 
   async function handleStudentEdit(e) {
@@ -116,7 +134,7 @@ export default function EditStudent() {
     };
 
     if (
-      !pfp &&
+      !pfpChanged &&
       student.nome === nomeInput.value &&
       student.sobrenome === sobrenomeInput.value &&
       student.email === emailInput.value &&
@@ -132,12 +150,18 @@ export default function EditStudent() {
     try {
       dispatch(loadingActions.LoadingStart());
 
-      if (pfp) {
+      if (pfpChanged && pfpFile) {
         const formData = new FormData();
         formData.append('aluno_id', studentId);
-        formData.append('photo_name', pfp);
+        formData.append('photo_name', pfpFile);
         await axios.post('photos', formData, {
           headers: { "Content-Type": 'multipart/form-data' }
+        });
+      } else if (pfpChanged && !pfpFile) {
+        await axios.delete('photos', {
+          data: {
+            file_name: student.Photo.file_name
+          }
         });
       }
 
@@ -152,6 +176,7 @@ export default function EditStudent() {
       pesoInput.value = response.data.peso;
 
       dispatch(loadingActions.LoadingEnd());
+      return navigate('/');
     } catch (e) {
       dispatch(loadingActions.LoadingEnd());
       if (!e.response)

@@ -1,6 +1,6 @@
 import React, { useState }from "react";
 import { Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { isEmail } from 'validator';
 

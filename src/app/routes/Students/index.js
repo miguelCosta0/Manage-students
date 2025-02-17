@@ -38,7 +38,7 @@ export default function Students() {
 
       <div className="students">
         {students.map((val, i) => {
-          const url = val.Photos.length > 0 ? val.Photos[0].url : null;
+          const url = val.Photo ? val.Photo.url : null;
 
           return (
             <div className="student" key={val.id} id={`studentID${val.id}`}>
