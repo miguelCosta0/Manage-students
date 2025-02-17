@@ -29,12 +29,13 @@ export default function Students() {
     <>
       <h1>Students index</h1>
 
-      <div
+      <button
         className="create-student-btn"
+        type='button'
         onClick={() => navigate('create')}
       >
         Cadastrar novo Aluno
-      </div>
+      </button>
 
       <div className="students">
         {students.map((val, i) => {

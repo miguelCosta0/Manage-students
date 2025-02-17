@@ -1,16 +1,15 @@
-div.create-student-btn {
+button.create-student-btn {
   display: block;
   background-color: var(--primary-color-light);
-  width: fit-content;
   margin: 15px auto;
   padding: 7px;
   border: none;
   border-radius: 5px;
   text-transform: uppercase;
 }
-div.create-student-btn:hover {
+button.create-student-btn:hover {
   color: #fff;
-  font-weight: 520;
+  font-weight: 600;
   background-color: var(--primary-color-dark);
   cursor: pointer;
 }
