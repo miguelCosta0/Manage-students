@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { isEmail } from 'validator';
@@ -20,14 +20,15 @@ export default function Login() {
     <>
       <h1>Login</h1>
 
-      <form className="form-register" onSubmit={handleSubmit}>
+      <form className="form-login" onSubmit={handleSubmit}>
         <label htmlFor="email">E-mail</label>
         <input type="email" name="email" />
 
         <label htmlFor="password">Senha</label>
         <input type="password" name="password" />
+        <Link className='link-to-register' to='/register'>Ainda não tem cadastro?</Link>
 
-        <button className="sign-up-btn">Enviar</button>
+        <button className="sign-in-btn">Enviar</button>
       </form>
       {isLoggedIn && <Navigate to={prevPath} />}
     </>

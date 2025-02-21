@@ -1,24 +1,26 @@
-.form-register {
-  width: 650px;
+.form-login {
+  width: 500px;
   margin: 20px auto;
   padding: 10px;
 }
-
-.sing-up-label {
-  width: 50%;
-  padding: 15px;
-  background-color: rgb(212, 212, 212);
-}
-
-.form-register label {
+.form-login label {
   display: block;
-  margin: 20px 0 10px 0;
+  margin: 20px 0 5px 0;
 }
-.form-register input {
-  width: 60%;
+.form-login input {
+  width: 100%;
   height: 30px;
 }
-.form-register .sign-up-btn {
+.form-login .link-to-register {
+  text-decoration: none;
+  font-size: 13px;
+  color: var(--primary-color-dark);
+}
+.form-login .link-to-register:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+.form-login .sign-in-btn {
   display: block;
   background-color: var(--primary-color-light);
   margin: 15px 5px;
@@ -28,7 +30,7 @@
   text-transform: uppercase;
 }
 
-.form-register .sign-up-btn:hover {
+.form-login .sign-in-btn:hover {
   color: #fff;
   font-weight: 520;
   background-color: var(--primary-color-dark);
