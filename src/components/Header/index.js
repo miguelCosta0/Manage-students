@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, Outlet} from 'react-router-dom'
-import { FaHome, FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa';
+import { Link, Outlet } from 'react-router-dom'
+import { FaHome, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { useSelector, useDispatch } from "react-redux";
 
 import * as actions from '../../store/modules/auth/actions';
@@ -14,7 +14,7 @@ export default function Header() {
   const dispatch = useDispatch();
 
   const iconSize = '25px';
-  const iconColor= '#fff';
+  const iconColor = '#fff';
 
   return (
     <>
@@ -25,38 +25,38 @@ export default function Header() {
             color={ iconColor }
           />
         </Link>
-        
+
         <div className="user-actions">
-          {isLoggedIn ? 
-            <Link 
-              to='/login' 
+          { isLoggedIn ?
+            <Link
+              to='/login'
               className='logout-btn'
               onClick={() => dispatch(actions.LoginFailure())}
             >
               <FaSignOutAlt
                 size={ iconSize }
                 color='inherit'
-                />
+              />
             </Link> :
             <Link to='/login' className='login-btn'>
-            <FaSignInAlt
-              size={ iconSize }
-              color={ iconColor }
+              <FaSignInAlt
+                size={ iconSize }
+                color='inherit'
               />
-          </Link>
+            </Link>
           }
           <Link to='/user'>
             <FaUser
               size={ iconSize }
               color={ iconColor }
-              />
+            />
           </Link>
         </div>
       </nav>
 
       <Loading />
 
-      <Outlet/>
+      <Outlet />
     </>
   )
 }

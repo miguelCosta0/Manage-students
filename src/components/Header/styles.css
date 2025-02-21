@@ -15,6 +15,12 @@ nav.header div.user-actions {
   gap: 20px;
 }
 
+.login-btn {
+  color: #fff;
+}
+.login-btn:hover {
+  color: rgb(68, 250, 98);
+}
 .logout-btn {
   color: #fff;
 }

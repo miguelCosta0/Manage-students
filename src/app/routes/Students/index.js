@@ -10,16 +10,20 @@ import StudentProfilePicture from "./profilePic";
 import './css/index.css';
 
 export default function Students() {
-  const [students, setStudents] = useState([]);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [students, setStudents] = useState([]);
+  const [studentPfpWidth, setStudentPfpWidth] = useState(0);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   useEffect(() => {
     (async () => {
       dispatch(loadingActions.LoadingStart());
       const students = await axios('alunos');
       setStudents(students.data);
+      setStudentPfpWidth(() => getComputedStyle(
+        document.querySelector('.student .student-pfp')
+      ).width);
       dispatch(loadingActions.LoadingEnd());
     })();
   }, [dispatch])
@@ -44,7 +48,7 @@ export default function Students() {
           return (
             <div className="student" key={val.id} id={`studentID${val.id}`}>
               <div className="student-pfp">
-                <StudentProfilePicture url={url} />
+                <StudentProfilePicture url={url} width={ studentPfpWidth } />
               </div>
               <div>{`${val.nome} ${val.sobrenome}`}</div>
               <div>{val.email}</div>
