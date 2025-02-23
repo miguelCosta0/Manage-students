@@ -14,7 +14,7 @@ export default function Register() {
 
   return (
     <>
-      <h1>Editar usuário</h1>
+      <h1>Editar Usuário</h1>
 
       <form className="form-edit-user" onSubmit={handleSubmit}>
         <label htmlFor="name">Nome</label>
@@ -32,7 +32,6 @@ export default function Register() {
 
         <button className="edit-user-btn">Enviar</button>
       </form>
-
     </>
   );
 

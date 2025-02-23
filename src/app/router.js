@@ -24,7 +24,6 @@ const router = createBrowserRouter(
       <Route element={<PrivateRoute />}>
         <Route path='/user' element={<User />} />
         <Route path='/user/edit' element={<EditUser />} />
-
         <Route path='/students/edit/:id' element={<EditStudent />} />
         <Route path='/students/create/' element={<CreateStudent />} />
       </Route>
@@ -33,7 +32,6 @@ const router = createBrowserRouter(
       <Route path='/students' element={<Students />} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-
 
     </Route>
   )

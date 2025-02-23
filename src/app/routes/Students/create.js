@@ -16,7 +16,7 @@ export default function CreateStudent() {
 
   return (
     <>
-      <h1>Novo Aluno</h1>
+      <h1>Cadastrar Novo Aluno</h1>
 
       <form className="form-create-student" onSubmit={handleCreateStudent}>
         <label>

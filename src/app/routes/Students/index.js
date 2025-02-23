@@ -13,7 +13,6 @@ export default function Students() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [students, setStudents] = useState([]);
-  const [studentPfpWidth, setStudentPfpWidth] = useState(0);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   useEffect(() => {
@@ -21,17 +20,13 @@ export default function Students() {
       dispatch(loadingActions.LoadingStart());
       const students = await axios('alunos');
       setStudents(students.data);
-      setStudentPfpWidth(() => getComputedStyle(
-        document.querySelector('.student .student-pfp')
-      ).width);
       dispatch(loadingActions.LoadingEnd());
     })();
-  }, [dispatch])
-
+  }, [dispatch]);
 
   return (
     <>
-      <h1>Students index</h1>
+      <h1>Alunos</h1>
 
       <button
         className="create-student-btn"
@@ -42,16 +37,20 @@ export default function Students() {
       </button>
 
       <div className="students">
-        {students.map((val, i) => {
+        {students.map((val) => {
           const url = val.Photo ? val.Photo.url : null;
 
           return (
             <div className="student" key={val.id} id={`studentID${val.id}`}>
               <div className="student-pfp">
-                <StudentProfilePicture url={url} width={ studentPfpWidth } />
+                <StudentProfilePicture url={url} />
               </div>
-              <div>{`${val.nome} ${val.sobrenome}`}</div>
-              <div>{val.email}</div>
+              <div className="student-name">
+                {`${val.nome} ${val.sobrenome}`}
+              </div>
+              <div className="student-email">
+                {val.email}
+              </div>
               <div>
                 <div
                   className="edit-btn"

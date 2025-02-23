@@ -6,8 +6,8 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.877);
-  color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
   font-size: 20px;
 
   display: flex;

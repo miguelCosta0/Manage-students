@@ -14,11 +14,11 @@ import './css/edit.css'
 export default function EditStudent() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { id: studentId } = useParams();
   const [student, setStudent] = useState({});
   const [pfpUrl, setPfpUrl] = useState(null);
   const [pfpFile, setPfpFile] = useState(null);
   const [pfpChanged, setPfpChanged] = useState(false);
-  const { id: studentId } = useParams();
 
   useEffect(() => {
     (async () => {
@@ -56,8 +56,8 @@ export default function EditStudent() {
     <>
       <h1>Editar Aluno</h1>
       <form className="form-edit-student" onSubmit={handleStudentEdit}>
-        <div id='student-pfp' >
-          <input type="file" onChange={ChangePfp}></input>
+        <div id='student-pfp'>
+          <input type="file" accept='image/*' onChange={ChangePfp}></input>
           <div className="select-pfp-hover">
             <button type='button' onClick={selectNewPfp}>Nova imagem</button>
             <button type='button' onClick={removePfp}>Remover</button>
@@ -94,12 +94,12 @@ export default function EditStudent() {
     </>
   );
 
-  function selectNewPfp(e) {
+  function selectNewPfp() {
     const fileInput = document.querySelector('.form-edit-student input[type="file"]');
     fileInput.click();
   }
 
-  function removePfp(e) {
+  function removePfp() {
     setPfpFile(null);
     if (pfpUrl) {
       setPfpUrl(null);
@@ -108,7 +108,7 @@ export default function EditStudent() {
   }
 
   function ChangePfp(e) {
-    const pfpFile = e.target.files[0];
+    const pfpFile = e.target.files.item(e.target.files.length - 1);
     setPfpFile(pfpFile);
     setPfpUrl(URL.createObjectURL(pfpFile));
     setPfpChanged(true);

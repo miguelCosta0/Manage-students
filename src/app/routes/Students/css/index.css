@@ -39,16 +39,23 @@ button.create-student-btn:hover {
   align-items: center;
 }
 
-.student div.student-pfp {
+.student .student-pfp {
   height: var(--student-row-height);
   width: var(--student-row-height);
   vertical-align: middle;
 }
-
-.student img {
+.student-pfp img, .student-pfp svg {
   border-radius: 50%;
   width: var(--student-row-height);
   height: var(--student-row-height);
+}
+.student .student-name {
+  min-width: 175px;
+  text-align: center;
+}
+.student .student-email {
+  min-width: 250px;
+  text-align: center;
 }
 
 .student .edit-btn {
